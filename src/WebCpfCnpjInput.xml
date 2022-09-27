@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget id="truechange.webcpfcnpjinput.WebCpfCnpjInput" pluginWidget="true" needsEntityContext="true" offlineCapable="true"
+        supportedPlatform="Web"
+        xmlns="http://www.mendix.com/widget/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
+    <name>Web Cpf Cnpj Input</name>
+    <description>This is an input wrapper to mask the value (which can be either a CPF or CNPJ) with the corresponding brazilian format mask, as you type.</description>
+    <icon>
+        iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAABT5JREFUeF7lm01oXFUUx3/nJYof4Meu3ZiKmGkrSOpCd4q60ZVfWEER3WjcWK1iTSaCEZw3UbFU3RhdiAsVBQPu3FjQnYK1FZxkIsV20+IqKtpIm8yR+yaTvJnM5N2PN5kZ+5Yz95x7/v9373nnnHuu0O3n9coIEt0GMoZQAN0FshO4Brhsbfp/gSXgd5RTCPOonkBr3/PK3tPdNFG6onxm8XZqeh/KvQh7AueoAF8TyVdMjH4XqGuTeH4EzJy8mtqFcVSezAF0e5zKPMhHXJBZpm/8Kw8ywglIgK8cAg4Cl+dhlIWOZZQjDA2/wcQNf1qM7zgkjIDS4rMIr4FeG2KEv6wsobzK1Oh7vjr8CCgt3IzIEeBO34lzljuK6kGmdv/sqtedgHL1aZT3AXdZV+vcxiswTrHwoYuYG4hy9TCa7PV+fg5TLLxoa6A9AfHCJyCP2iru7Tj9lOLux2xssCMgrn4JPGijsI/GzFEsPJRlTzYBA/XmW+Fmr4StCYirbwMvZLHY5/9v6RM6ExBXnwI+6HNwduYJ40wW2mJpT0D9O3+8Dz91doA3j1JUx9rFCe0JiKvfAHf5ztanckcpFu5utW0zAfHiAdB3+hREoFnyHMXRd9NKmgmY/vUqLtVTvYvtA/FlissS0dD16QSqmYC4WgKKmXpaBujkaPKLlBddRXsxPqZYmGpMvEFAPZ8/A3KFi1UN8OsK+5+EZc5HOxr1hA0CSosvIfqmC3gzdgAJAJVDTI2+lazadcBx9Rdg78VBAPNMFRKsdQLqNbxvXcEP7Aowhkdyh6kx1gkICHkHcgvU33QSItcJKFUrvoXMASagQrFwkzBz8jpqK86191bgnbaP66fRVm8un91oeEQoLexH5HPX/d8NQ1105vLZFd0vBAY/WcS5rAAfAgJXQiyUqnMID2QB2Y7/bfxJJ5JciE5hmTMr4BiwLwRgnqGw0WUDxoYsC0w/GQLOAOaw0usJMSREtjUGsSGtDcCzQrzwj2v8n1YUAiJE1uttbRLSc2YF1EIqPyEg0rKebzCUB+0ZASHEhaJOyScEnAs51fUF4iuXI3ijarlnTrBPCEic4I8gt/gy6wvEV87XzvZyesysgKBjL18gvnL5EsCciQRjhElfxSFAQmR97W2SU8pCeeFhVL7wVRgCIkTW195mAvQR73S4oSgERLu4flvjgSQdNk8PCyI9JGGtIGII6HJJLCtZcsnwcoweUyWxgKJoa1KS3mNmOdsabFMLaNVn5vLeMk1F0Zy3QYMEFwK2ItJXX0dHaRoum8riCQF+ByM2maFtjt/JsaYJyMf7tzsYqXd8ng3JC3IxLliJ6ZbbsvGlw9FYfRsEBUXBtnsrMKDNOZ3BntH2pJSZKqwfADePTlbB6m+DdTy+Bt6qb1OWOC+70o3WA94goYgoaA1lKGvpm0PRA619xQPeIqMMR3+zUrsSNMpq3rVskUl8wSA0SbksfZSIfUwUTrS6mc4eo94UPevtl7oumOntNyxwbpNriAaEyN3F7wB+7RS4kz3/81ZZPqNY2LLBO5uAenzQN8dnDisrp2bp9e0wSO3y2W9+Pbx2YDQobXaaJ2xwly5MbDhG00Rtvg522ycMjIu0IjzTqSna3wm2k7yoL02lCUn6ipnuXe7Qq2tzaRJMArW68jLC89uYSvfJxck0EaXKTiR6HOQJn4ZLy81eAf2Y6JLZ0Bujfl8BSyuTxkvV+6lxj2/7XWqqAbk83Ykcc31+KLoVlTGUPYiOgOwAzHXbtevzugzyR9P1edHjrNZ+6Pb1+f8AEfMn8E1cm8cAAAAASUVORK5CYII=
+    </icon>
+    <properties>
+        <propertyGroup caption="General">
+            <property key="valueAttribute" type="attribute" required="true" onChange="onChange">
+                <caption>Value attribute</caption>
+                <description>The attribute that contains the webcpfcnpjinput value</description>
+                <attributeTypes>
+                    <attributeType name="String"/>
+                </attributeTypes>
+            </property>
+            <property key="maskAttribute" type="attribute" required="false">
+                <caption>Mask attribute</caption>
+                <description>The attribute that will receive the result type mask CPF / CNPJ</description>
+                <attributeTypes>
+                    <attributeType name="String"/>
+                </attributeTypes>
+            </property>  
+            <property key="saveMask" type="boolean" defaultValue="false">
+                <caption>Save masked value</caption>
+                <description></description>
+            </property> 
+            <property key="placeHolder" type="string" required="false" defaultValue="Digite um CPF ou CNPJ">
+                <caption>Place Holder</caption>
+                <description/>
+            </property>         
+        </propertyGroup>
+
+        <propertyGroup caption="Label">
+            <systemProperty key="Label" />
+        </propertyGroup>           
+        <propertyGroup caption="Editability">
+            <systemProperty key="Editability"/>
+        </propertyGroup>
+        <propertyGroup caption="Visibility">
+            <systemProperty key="Visibility"/>
+        </propertyGroup>
+        <propertyGroup caption="Validation">
+            <property key="requiredMessage" type="textTemplate" required="false">
+                <caption>Required message</caption>
+                <description/>
+                <translations>
+                    <translation lang="en_US">A input text is required</translation>
+                </translations>
+            </property>
+        </propertyGroup>    
+        <propertyGroup caption="Common">
+            <systemProperty key="Name"/>
+            <systemProperty key="TabIndex"/>
+        </propertyGroup>
+        <propertyGroup caption="Events">
+            <property key="onChange" type="action" required="false">
+                <caption>On Change action</caption>
+                <description>Action to trigger when input is changed</description>
+            </property>
+        </propertyGroup>        
+    </properties>
+</widget>
