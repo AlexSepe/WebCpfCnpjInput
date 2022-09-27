@@ -10,7 +10,6 @@ export interface WebCpfCnpjInputContainerProps {
     tabIndex?: number;
     id: string;
     valueAttribute: EditableValue<string>;
-    maskAttribute?: EditableValue<string>;
     saveMask: boolean;
     placeHolder: string;
     requiredMessage?: DynamicValue<string>;
@@ -19,7 +18,6 @@ export interface WebCpfCnpjInputContainerProps {
 export interface WebCpfCnpjInputPreviewProps {
     readOnly: boolean;
     valueAttribute: string;
-    maskAttribute: string;
     saveMask: boolean;
     placeHolder: string;
     requiredMessage: string;

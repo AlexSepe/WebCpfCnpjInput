@@ -10,51 +10,45 @@
     </icon>
     <properties>
         <propertyGroup caption="General">
-            <property key="valueAttribute" type="attribute" required="true" onChange="onChange">
-                <caption>Value attribute</caption>
-                <description>The attribute that contains the webcpfcnpjinput value</description>
-                <attributeTypes>
-                    <attributeType name="String"/>
-                </attributeTypes>
-            </property>
-            <property key="maskAttribute" type="attribute" required="false">
-                <caption>Mask attribute</caption>
-                <description>The attribute that will receive the result type mask CPF / CNPJ</description>
-                <attributeTypes>
-                    <attributeType name="String"/>
-                </attributeTypes>
-            </property>  
-            <property key="saveMask" type="boolean" defaultValue="false">
-                <caption>Save masked value</caption>
-                <description></description>
-            </property> 
-            <property key="placeHolder" type="string" required="false" defaultValue="Digite um CPF ou CNPJ">
-                <caption>Place Holder</caption>
-                <description/>
-            </property>         
+            <propertyGroup caption="Data source">
+                <property key="valueAttribute" type="attribute" required="true" onChange="onChange">
+                    <caption>Value attribute</caption>
+                    <description>The attribute that contains the webcpfcnpjinput value</description>
+                    <attributeTypes>
+                        <attributeType name="String"/>
+                    </attributeTypes>
+                </property>
+                <property key="saveMask" type="boolean" defaultValue="false">
+                    <caption>Save masked value</caption>
+                    <description></description>
+                </property> 
+                <property key="placeHolder" type="string" required="false" defaultValue="Digite um CPF ou CNPJ">
+                    <caption>Place Holder</caption>
+                    <description/>
+                </property>
+            </propertyGroup>  
+            <propertyGroup caption="Label">
+                <systemProperty key="Label" />
+            </propertyGroup>        
+            <propertyGroup caption="Editability">
+                <systemProperty key="Editability"/>
+            </propertyGroup>
+            <propertyGroup caption="Visibility">
+                <systemProperty key="Visibility"/>
+            </propertyGroup>
+            <propertyGroup caption="Validation">
+                <property key="requiredMessage" type="textTemplate" required="false">
+                    <caption>Required message</caption>
+                    <description/>
+                    <translations>
+                        <translation lang="en_US">A input text is required</translation>
+                    </translations>
+                </property>
+            </propertyGroup>                
         </propertyGroup>
-
-        <propertyGroup caption="Label">
-            <systemProperty key="Label" />
-        </propertyGroup>           
-        <propertyGroup caption="Editability">
-            <systemProperty key="Editability"/>
-        </propertyGroup>
-        <propertyGroup caption="Visibility">
-            <systemProperty key="Visibility"/>
-        </propertyGroup>
-        <propertyGroup caption="Validation">
-            <property key="requiredMessage" type="textTemplate" required="false">
-                <caption>Required message</caption>
-                <description/>
-                <translations>
-                    <translation lang="en_US">A input text is required</translation>
-                </translations>
-            </property>
-        </propertyGroup>    
         <propertyGroup caption="Common">
             <systemProperty key="Name"/>
-            <systemProperty key="TabIndex"/>
+            <systemProperty key="TabIndex"/>            
         </propertyGroup>
         <propertyGroup caption="Events">
             <property key="onChange" type="action" required="false">

@@ -1,7 +1,8 @@
-import { Component, ReactNode, createElement } from "react";
+import { Component, ReactNode, Fragment, createElement } from "react";
 
 import { WebCpfCnpjInputContainerProps } from "../typings/WebCpfCnpjInputProps";
 import { CpfCnpjComp } from "./components/CpfCnpjComp";
+import { Alert } from "./components/Alert";
 import "./ui/WebCpfCnpjInput.css";
 
 export class WebCpfCnpjInput extends Component<WebCpfCnpjInputContainerProps> {
@@ -13,18 +14,34 @@ export class WebCpfCnpjInput extends Component<WebCpfCnpjInputContainerProps> {
         const validationFeedback = this.props.valueAttribute.validation;
         const required = !!(this.props.requiredMessage && this.props.requiredMessage.value);
         return (
-            <CpfCnpjComp
-                // className={this.props.class}
-                // onValueChange={this.onValueChangeHandler}
-                onLeave={this.onLeaveHandle}
-                placeHolder={this.props.placeHolder}
-                value={value}
-                required={required}
-                hasError={!!validationFeedback}
-                saveMask={this.props.saveMask}
-            ></CpfCnpjComp>
+            <Fragment>
+                <CpfCnpjComp
+                    // className={this.props.class}
+                    // onValueChange={this.onValueChangeHandler}
+                    onLeave={this.onLeaveHandle}
+                    placeHolder={this.props.placeHolder}
+                    value={value}
+                    required={required}
+                    readOnly={this.props.valueAttribute.readOnly}
+                    hasError={!!validationFeedback}
+                    saveMask={this.props.saveMask}
+                ></CpfCnpjComp>
+                <Alert>{validationFeedback}</Alert>
+            </Fragment>
         );
     }
+
+    // componentDidMount(): void {
+    //     this.props.valueAttribute.setValidator(this.validator.bind(this));
+    // }
+
+    // private validator(value: string | undefined): string | undefined {
+    //     const { requiredMessage } = this.props;
+    //     if (requiredMessage && requiredMessage.value && !value) {
+    //         return requiredMessage.value;
+    //     }
+    //     return;
+    // }
 
     // private onValueChange(value: string, mask: string): void {
     //     // this.props.valueAttribute?.setValue(value);
@@ -50,6 +67,7 @@ export class WebCpfCnpjInput extends Component<WebCpfCnpjInputContainerProps> {
             return;
         }
         this.props.valueAttribute.setValue(value);
-        this.props.maskAttribute?.setValue(mask);
+        // this.props.maskAttribute?.setValue(mask);
+        console.log("WebCpfCnpjInput onValueChange " + value + " mask " + mask);
     }
 }

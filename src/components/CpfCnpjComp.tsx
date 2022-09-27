@@ -12,7 +12,7 @@ export interface CpfCnpjCompProps {
     disabled?: boolean;
     hasError?: boolean;
     required?: boolean;
-    editable?: boolean;
+    readOnly?: boolean;
     saveMask?: boolean;
     onLeave?: (value: string, mask: string, isChanged: boolean) => void;
 }
@@ -34,7 +34,6 @@ export class CpfCnpjComp extends Component<CpfCnpjCompProps, InputState> {
 
     render(): ReactNode {
         const labelledby = `${this.props.id}-label` + (this.props.hasError ? ` ${this.props.id}-error` : "");
-
         return (
             <input
                 className={classNames("widget-webcpfcnpjinput", this.props.className, "form-control", "mx-textbox")}
@@ -45,7 +44,7 @@ export class CpfCnpjComp extends Component<CpfCnpjCompProps, InputState> {
                 onChange={this.onChangeHandle}
                 onBlur={this.onBlurHandle}
                 disabled={this.props.disabled}
-                readOnly={this.props.editable}
+                readOnly={this.props.readOnly}
                 aria-labelledby={labelledby}
                 aria-invalid={this.props.hasError}
                 aria-required={this.props.required}
