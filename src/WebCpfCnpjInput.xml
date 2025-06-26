@@ -55,6 +55,14 @@
                 <caption>On Change action</caption>
                 <description>Action to trigger when input is changed</description>
             </property>
+            <property key="onFocus" type="action" required="false">
+                <caption>On Focus action</caption>
+                <description>Action to trigger when input receives focus</description>
+            </property>
+            <property key="onBlur" type="action" required="false">
+                <caption>On Blur action</caption>
+                <description>Action to trigger when input loses focus</description>
+            </property>
         </propertyGroup>        
     </properties>
 </widget>

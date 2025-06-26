@@ -15,6 +15,8 @@ export interface CpfCnpjCompProps {
     readOnly?: boolean;
     saveMask?: boolean;
     onLeave?: (value: string, mask: string, isChanged: boolean) => void;
+    onFocus?: () => void;
+    onBlur?: () => void;
 }
 
 interface InputState {
@@ -31,6 +33,7 @@ export class CpfCnpjComp extends Component<CpfCnpjCompProps, InputState> {
     readonly state: InputState = { editedValue: undefined };
     private readonly onChangeHandle = this.onLocalChange.bind(this);
     private readonly onBlurHandle = this.onBlur.bind(this);
+    private readonly onFocusHandle = this.onFocus.bind(this);
 
     render(): ReactNode {
         const labelledby = `${this.props.id}-label` + (this.props.hasError ? ` ${this.props.id}-error` : "");
@@ -43,6 +46,7 @@ export class CpfCnpjComp extends Component<CpfCnpjCompProps, InputState> {
                 value={this.getCurrentValue()}
                 onChange={this.onChangeHandle}
                 onBlur={this.onBlurHandle}
+                onFocus={this.onFocusHandle}
                 disabled={this.props.disabled}
                 readOnly={this.props.readOnly}
                 aria-labelledby={labelledby}
@@ -88,6 +92,9 @@ export class CpfCnpjComp extends Component<CpfCnpjCompProps, InputState> {
     }
 
     private onBlur(): void {
+        if (this.props.onBlur) {
+            this.props.onBlur();
+        }
         const inputValue = this.props.value;
         let currentValue = this.getCurrentValue();
 
@@ -100,6 +107,12 @@ export class CpfCnpjComp extends Component<CpfCnpjCompProps, InputState> {
         }
 
         this.setState({ editedValue: undefined });
+    }
+
+    private onFocus(): void {
+        if (this.props.onFocus) {
+            this.props.onFocus();
+        }
     }
 
     private getMask(value: string): string {

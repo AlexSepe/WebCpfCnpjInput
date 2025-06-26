@@ -8,6 +8,8 @@ import "./ui/WebCpfCnpjInput.css";
 export class WebCpfCnpjInput extends Component<WebCpfCnpjInputContainerProps> {
     // private readonly onValueChangeHandler = this.onValueChange.bind(this);
     private readonly onLeaveHandle = this.onLeave.bind(this);
+    private readonly onFocusHandle = this.onFocus.bind(this);
+    private readonly onBlurHandle = this.onBlur.bind(this);
 
     render(): ReactNode {
         const value = this.props.valueAttribute.value || "";
@@ -19,6 +21,8 @@ export class WebCpfCnpjInput extends Component<WebCpfCnpjInputContainerProps> {
                     // className={this.props.class}
                     // onValueChange={this.onValueChangeHandler}
                     onLeave={this.onLeaveHandle}
+                    onFocus={this.onFocusHandle}
+                    onBlur={this.onBlurHandle}
                     placeHolder={this.props.placeHolder}
                     value={value}
                     required={required}
@@ -69,5 +73,17 @@ export class WebCpfCnpjInput extends Component<WebCpfCnpjInputContainerProps> {
         this.props.valueAttribute.setValue(value);
         // this.props.maskAttribute?.setValue(mask);
         console.log("WebCpfCnpjInput onValueChange " + value + " mask " + mask);
+    }
+
+    private onFocus(): void {
+        if (this.props.onFocus && this.props.onFocus.canExecute) {
+            this.props.onFocus.execute();
+        }
+    }
+
+    private onBlur(): void {
+        if (this.props.onBlur && this.props.onBlur.canExecute) {
+            this.props.onBlur.execute();
+        }
     }
 }

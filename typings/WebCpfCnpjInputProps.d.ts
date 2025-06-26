@@ -3,7 +3,7 @@
  * WARNING: All changes made to this file will be overwritten
  * @author Mendix UI Content Team
  */
-import { DynamicValue, EditableValue } from "mendix";
+import { ActionValue, DynamicValue, EditableValue } from "mendix";
 
 export interface WebCpfCnpjInputContainerProps {
     name: string;
@@ -13,6 +13,8 @@ export interface WebCpfCnpjInputContainerProps {
     saveMask: boolean;
     placeHolder: string;
     requiredMessage?: DynamicValue<string>;
+    onFocus?: ActionValue;
+    onBlur?: ActionValue;
 }
 
 export interface WebCpfCnpjInputPreviewProps {
@@ -22,4 +24,6 @@ export interface WebCpfCnpjInputPreviewProps {
     placeHolder: string;
     requiredMessage: string;
     onChange: {} | null;
+    onFocus: {} | null;
+    onBlur: {} | null;
 }
